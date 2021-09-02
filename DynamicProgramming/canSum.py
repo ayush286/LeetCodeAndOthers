@@ -6,6 +6,7 @@ def canSum(array, target):
     return memo.get(target)
 
 
+# O(m*n) Time | O(m)Space where m is length of memo and n is length of array
 def canSumHelper(array, target, memo, elem):
     if target in memo or target < 0:
         return memo

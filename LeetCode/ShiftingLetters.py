@@ -28,3 +28,27 @@ class Solution(object):
         if newAscii > 122:
             newAscii -= 26
         return chr(newAscii)
+    
+    # Solution 2
+    
+class Solution(object):
+    # O(n) Time | O(n) Space where n is length of shifts
+    def shiftingLetters(self, s, shifts):
+        """
+        :type s: str
+        :type shifts: List[int]
+        :rtype: str
+        """
+        runningShifts = 0
+        shiftedChars = ['' for char in range(len(shifts))]
+        for index in reversed(range(len(shifts))):
+            runningShifts += shifts[index]
+            shiftedChars[index] = self.getShiftedLetter(s[index], runningShifts)
+        return "".join(shiftedChars)
+        
+    def getShiftedLetter(self, char, shift):
+        shift %= 26
+        newAscii = ord(char) + shift
+        if newAscii > 122:
+            newAscii -= 26
+        return chr(newAscii)

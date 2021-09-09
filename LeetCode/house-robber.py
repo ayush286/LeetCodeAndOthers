@@ -1,4 +1,5 @@
 class Solution(object):
+    # O(n) Time | O(1) Space where n is length of nums
     def rob(self, nums):
         """
         :type nums: List[int]
